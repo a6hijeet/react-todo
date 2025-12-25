@@ -40,7 +40,7 @@ The UI automatically switches between **light mode** and **dark mode** based on 
 ## Getting Started
 
 ### Clone the project, install dependencies and run:
-
+```bash
 git clone git@github.com:a6hijeet/react-todo.git
 
 cd react-todo
@@ -48,19 +48,21 @@ cd react-todo
 npm install
 
 npm run dev
+```
 
 ## Build
 
 ### Create a production build:
-
+```bash
 npm run build
+```
 
 ## Deploy (GitHub Pages)
 
 ### Deploy the app:
-
+```bash
 npm run deploy
-
+```
 ## Future Improvements
 
 - Save tasks using localStorage
