@@ -4,31 +4,63 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setToDos] = useState(["test 1", "test 2"]);
+  const [newToDo, setNewToDo] = useState("");
+
+  const handleInput = (e) => {
+    e.preventDefault();
+    setNewToDo(e.target.value);
+  }
+
+  const handleAddToDo = () => {
+    const input = document.getElementById("todoInput");
+    const val = input.value;
+    setToDos(t => [...t, val]);
+    input.value = "";
+  }
+
+  const handleDelete = (index) => {
+    const newToDo = todos.filter((_, i) => i !== index);
+    setToDos(newToDo);
+  }
+
+  const handleMoveUp = (index) => {
+    const updatedToDo = [...todos];
+    if(index > 0) {
+      [updatedToDo[index], updatedToDo[index - 1]] = [updatedToDo[index - 1], updatedToDo[index]];
+      setToDos(updatedToDo);
+    }
+  }
+  const handleMoveDown = (index) => {
+    const updatedToDo = [...todos];
+    if (index < todos.length - 1) {
+      [updatedToDo[index], updatedToDo[index + 1]] = [updatedToDo[index + 1], updatedToDo[index]];
+      setToDos(updatedToDo);
+    }
+  }
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="todo-wrapper">
+      <h1>To Do</h1>
+      <div className='form'>
+        <input type="text" name="todoInput" id="todoInput" onChange={(e) => handleInput(e)}/>
+        <button onClick={handleAddToDo}>Add</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <ul className='todo-list-wrapper'>
+        {todos.map((todo, index) => 
+          <li className="todo-list" key={index}>
+            <p>{todo}</p>
+            <div className='button-wrapper'>
+              <button onClick={() => handleDelete(index)} className='delete'>Delete</button>
+              <button onClick={() => handleMoveUp(index)} className='up'>Up</button>
+              <button onClick={() => handleMoveDown(index)} className='down'>Down</button>
+            </div>
+          </li>
+          
+        )}
+      </ul>
+    </div>
   )
 }
 
