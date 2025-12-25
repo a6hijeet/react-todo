@@ -1,16 +1,69 @@
-# React + Vite
+# React To-Do App — Task Management Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple To-Do list web application built using **React**, **Vite** and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+You can **create** tasks, **delete** them, and **move them up or down** to organize your list. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app is lightweight, fast, and deployed using **GitHub Pages**.
 
-## React Compiler
+The UI automatically switches between **light mode** and **dark mode** based on the user’s system theme.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How It Works
 
-## Expanding the ESLint configuration
+- Type a task in the input box
+- Click Add to add it to the list
+- Use Up or Down buttons to reorder tasks
+- Click Delete to remove a task
+- If there are no tasks, a message asks you to add one
+- UI theme follows **system preference** (dark or light)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Built With
+
+- React
+- Vite
+- Tailwind CSS
+
+## Features
+
+- Add tasks
+- Delete tasks
+- Reorder tasks (move up / move down)
+- System based dark and light mode
+- Simple and clean UI
+- Fast build using Vite
+- Supports **GitHub Pages deployment**
+
+## Live Demo
+
+[https://a6hijeet.github.io/react-todo/](https://a6hijeet.github.io/react-todo/)
+
+## Getting Started
+
+- Clone the project, install dependencies and run:
+
+git clone git@github.com:a6hijeet/react-todo.git
+cd react-todo
+npm install
+npm run dev
+
+## Build
+
+- Create a production build:
+
+npm run build
+
+## Deploy (GitHub Pages)
+
+- Deploy the app:
+
+npm run deploy
+
+## Future Improvements
+
+- Save tasks using localStorage
+- Edit tasks
+- Mark completed tasks
+
+## License
+
+Free to use and modify.

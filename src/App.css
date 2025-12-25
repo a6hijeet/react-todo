@@ -33,7 +33,7 @@ html {
   font-size: 100%;
 }
 body {
-  @apply font-global px-4 md:px-8 dark:bg-gray-900 bg-white text-gray-900 dark:text-gray-300 text-center;
+  @apply font-global px-4 md:px-8 dark:bg-gray-900 bg-gray-200 text-gray-900 dark:text-gray-300 text-center;
 }
 
 h1 {
@@ -49,7 +49,7 @@ button {
   @apply flex justify-center mb-10;
 }
 input {
-  @apply w-[400px] border-none outline-none text-gray-300 dark:text-gray-900 dark:bg-white bg-gray-900 rounded px-2 py-2 ;
+  @apply w-[400px] border-none dark:outline-none text-gray-900 dark:text-gray-900 dark:bg-white bg-gray-400 outline-1 outline-gray-500 rounded px-2 py-2 ;
 }
 .todo-list-wrapper {
   @apply flex items-center flex-col;
