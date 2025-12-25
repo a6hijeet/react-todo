@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [todos, setToDos] = useState(["test 1", "test 2"]);
-  const [newToDo, setNewToDo] = useState("");
+  const [toDos, setToDos] = useState(['Task 1', 'Task 2']);
+  const [newToDo, setNewToDo] = useState('');
 
   const handleInput = (e) => {
     e.preventDefault();
@@ -13,27 +11,29 @@ function App() {
   }
 
   const handleAddToDo = () => {
-    const input = document.getElementById("todoInput");
+    const input = document.getElementById('toDoInput');
     const val = input.value;
-    setToDos(t => [...t, val]);
-    input.value = "";
+    if (val.trim() !== "") {
+      setToDos(t => [...t, val]);
+      input.value = '';
+    }
   }
 
   const handleDelete = (index) => {
-    const newToDo = todos.filter((_, i) => i !== index);
+    const newToDo = toDos.filter((_, i) => i !== index);
     setToDos(newToDo);
   }
 
   const handleMoveUp = (index) => {
-    const updatedToDo = [...todos];
+    const updatedToDo = [...toDos];
     if(index > 0) {
       [updatedToDo[index], updatedToDo[index - 1]] = [updatedToDo[index - 1], updatedToDo[index]];
       setToDos(updatedToDo);
     }
   }
   const handleMoveDown = (index) => {
-    const updatedToDo = [...todos];
-    if (index < todos.length - 1) {
+    const updatedToDo = [...toDos];
+    if (index < toDos.length - 1) {
       [updatedToDo[index], updatedToDo[index + 1]] = [updatedToDo[index + 1], updatedToDo[index]];
       setToDos(updatedToDo);
     }
@@ -41,24 +41,25 @@ function App() {
 
 
   return (
-    <div className="todo-wrapper">
+    <div className='todo-wrapper'>
       <h1>To Do</h1>
       <div className='form'>
-        <input type="text" name="todoInput" id="todoInput" onChange={(e) => handleInput(e)}/>
+        <input type='text' name='todoInput' id='toDoInput' onChange={(e) => handleInput(e)}/>
         <button onClick={handleAddToDo}>Add</button>
       </div>
       <ul className='todo-list-wrapper'>
-        {todos.map((todo, index) => 
-          <li className="todo-list" key={index}>
-            <p>{todo}</p>
+        { toDos.length > 0 ?
+          toDos.map((toDo, index) => 
+          <li className='todo-list' key={index}>
+            <p>{toDo}</p>
             <div className='button-wrapper'>
               <button onClick={() => handleDelete(index)} className='delete'>Delete</button>
               <button onClick={() => handleMoveUp(index)} className='up'>Up</button>
               <button onClick={() => handleMoveDown(index)} className='down'>Down</button>
             </div>
           </li>
-          
-        )}
+        ):  <p>Add your list</p> 
+        }
       </ul>
     </div>
   )

@@ -40,7 +40,7 @@ h1 {
   @apply font-header text-5xl/[1.5] mb-4;
 }
 p {
-  @apply text-lg/[1.5] mb-8;
+  @apply text-lg/[1.5];
 }
 button {
   @apply w-[100px] bg-indigo-500 text-white cursor-pointer text-2xl px-2 py-1 rounded ml-2;
@@ -55,7 +55,7 @@ input {
   @apply flex items-center flex-col;
 }
 .todo-list {
-  @apply flex justify-between w-[700px] gap-2 pt-2 border-b border-gray-700;
+  @apply flex justify-between w-[700px] gap-2 py-5 border-b border-gray-700;
 }
 .todo-list p {
   @apply text-left grow-0 shrink-0 basis-[450px];
